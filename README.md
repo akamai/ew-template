@@ -2,7 +2,13 @@
 EdgeWorkers template with Jest and Rollup.
 
 ## Setup
-### Modify package.json
+### 1. Install Akamai CLI and EdgeWorker command
+1. Install Akamai CLI
+    * https://github.com/akamai/cli?tab=readme-ov-file#install-akamai-cli
+2. Install EdgeWorkers command
+    * https://github.com/akamai/cli-edgeworkers?tab=readme-ov-file#install-or-update-the-edgeworkers
+
+### 2. Modify package.json
 Modify following fields.
 
 | field name | description | example |
@@ -11,22 +17,28 @@ Modify following fields.
 | section | Section name of credentials in .edgerc | "default" |
 | propertyhostname | Property Hostname which executes EdgeWorkers. Use this to generate debug token. | "www.example.com" |
 
-### Install yarn
+### 3. Install yarn
 If you have not installed `yarn`, install first.
 
 ```bash
 npm install --global yarn
 ```
 
-### Install dev-dependencies
+### 4. Install dev-dependencies
 Install all JavaScript dependencies listed in the package.json.
 ```bash
 yarn install
 ```
 
+## Workflows with yarn commands
+### Running unit test
+```bash
+yarn test
+```
+
 ### Build code budle
 Creates `dist/bundle.tgz`.  
-`bundle.json` is created/updated automatically and the `version` and `description` fields in `package.json` are used.
+`bundle.json` is created/updated automatically using `version` and `description` fields in `package.json`.
 ```bash
 yarn build
 ```
@@ -44,16 +56,10 @@ This is to prevent operational mistakes.
 yarn push-staging
 ```
 
-### generate token for the Enhanced Debug Header
+### Generate token for the Enhanced Debug Header
 Please make sure that the `propertyhostname` field in `package.json` is updated appropriately.
 ```bash
 yarn token
-```
-
-## Unit Test
-### Running unit test
-```bash
-yarn test
 ```
 
 ## List of yarn commands
